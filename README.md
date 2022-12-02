@@ -1,7 +1,6 @@
 # Currency converter
 ![Demo animation](https://raw.githubusercontent.com/MaciejUrny/currency-converter/main/img/md-animation.gif)
 
-
 ##  Demo
 
 https://maciejurny.github.io/currency-converter/
