@@ -12,16 +12,17 @@
         switch (currency) {
             case "EUR":
                 return rateEUR;
-
             case "CHF":
                 return rateCHF;
-
             case "GBP":
                 return rateGBP;
-
             case "USD":
                 return rateUSD;
         };
+    };
+
+    const calculateResult = (amount, currencyValue) => {
+        return amount / currencyValue
     };
 
     const init = () => {
@@ -36,8 +37,8 @@
             const amount = +amountElement.value;
             const currency = currencySelectionElement.value;
 
-            let result;
             const currencyValue = catchCurrencyValue(currency);
+            const result = calculateResult(amount,currencyValue);
 
             resultElement.value = `${amount} PLN / ${currencyValue.toFixed(2)} ${currency} = ${result.toFixed(2)} ${currency}`;
         });
