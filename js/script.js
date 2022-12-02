@@ -25,23 +25,26 @@
         return amount / currencyValue;
     };
 
+    const onFormSubmit = (event) => {
+        event.preventDefault();
+
+        const amountElement = document.querySelector(".js-amountPLN");
+        const currencySelectionElement = document.querySelector(".js-currencySelection");
+        const resultElement = document.querySelector(".js-result");
+
+        const amount = +amountElement.value;
+        const currency = currencySelectionElement.value;
+
+        const currencyValue = catchCurrencyValue(currency);
+        const result = calculateResult(amount, currencyValue);
+
+        resultElement.value = `${amount} PLN / ${currencyValue.toFixed(2)} ${currency} = ${result.toFixed(2)} ${currency}`;
+    };
+
     const init = () => {
         const formElement = document.querySelector(".js-form");
-       
-        formElement.addEventListener("submit", (event) => {
-            event.preventDefault();
-            const amountElement = document.querySelector(".js-amountPLN");
-            const currencySelectionElement = document.querySelector(".js-currencySelection");
-            const resultElement = document.querySelector(".js-result");
 
-            const amount = +amountElement.value;
-            const currency = currencySelectionElement.value;
-
-            const currencyValue = catchCurrencyValue(currency);
-            const result = calculateResult(amount,currencyValue);
-
-            resultElement.value = `${amount} PLN / ${currencyValue.toFixed(2)} ${currency} = ${result.toFixed(2)} ${currency}`;
-        });
+        formElement.addEventListener("submit", onFormSubmit);
 
         welcome();
 
