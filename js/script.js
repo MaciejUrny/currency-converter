@@ -22,17 +22,17 @@
     };
 
     const calculateResult = (amount, currencyValue) => {
-        return amount / currencyValue
+        return amount / currencyValue;
     };
 
     const init = () => {
         const formElement = document.querySelector(".js-form");
-        const amountElement = document.querySelector(".js-amountPLN");
-        const currencySelectionElement = document.querySelector(".js-currencySelection");
-        const resultElement = document.querySelector(".js-result");
-
+       
         formElement.addEventListener("submit", (event) => {
             event.preventDefault();
+            const amountElement = document.querySelector(".js-amountPLN");
+            const currencySelectionElement = document.querySelector(".js-currencySelection");
+            const resultElement = document.querySelector(".js-result");
 
             const amount = +amountElement.value;
             const currency = currencySelectionElement.value;
